@@ -19,17 +19,47 @@
 */
 
 /*  RESTAURANTS
-  1.
-  2.
-  3.
-  4.
-  5.
-  6.
-  7.
-  8.
-  9.
-  10.
-  11.
+  1.  db.restaurants.find()
+  2.  db.restaurants.find({}, {
+        "restaurant_id": 1,
+        "name": 1,
+        "borough": 1,
+        "cuisine": 1,
+        "_id": 0
+      })
+  3.  db.restaurants.find({}, {
+        "restaurant_id": 1,
+        "name": 1,
+        "borough": 1,
+        "address.zipcode": 1,
+        "_id": 0
+      })
+  4.  db.restaurants.find({borough: "Bronx"})
+  5.  db.restaurants.find({
+        borough: "Brooklyn", 
+        cuisine: "Steak"
+      })
+  6.  db.restaurants.find({"grades.score": {$gt: 90}})
+  7.  db.restaurants.find({
+        "cuisine": {$ne: "Bakery"},
+        "grades.score": {$gte: 70}
+      })
+  8.  db.restaurants.find({
+        "cuisine": {$ne: "Chinese"},
+        "grades.grade": "A",
+        "borough": {$ne: "Manhattan"}
+      })
+  9.  db.restaurants.updateMany({
+        "cuisine": "American "
+      }, {
+        $set: {"cuisine": "American"}
+      })
+  10. db.restaurants.updateOne({
+        "name": "Morris Park Bake Shop"
+      }, {
+        $set: {"address.street": "Calle falsa 123"}
+      })
+  11. db.restaurants.deleteMany({"address.zipcode": "10466"})
 */
 
 /*  COMPANIES
